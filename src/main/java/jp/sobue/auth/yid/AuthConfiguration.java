@@ -12,7 +12,7 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
     // @formatter:off
     http.authorizeRequests(
             a ->
-                a.antMatchers("/", "/top", "/error", "/webjars/**")
+                a.antMatchers("/", "/top", "/error", "/webjars/**", "/actuator/health")
                     .permitAll()
                     .anyRequest()
                     .authenticated())
