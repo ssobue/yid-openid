@@ -1,0 +1,8 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          yahoo:
+            client-id: ${vcap.services.yahoo-japan-openid.credentials.client-id}
+            client-secret: ${vcap.services.yahoo-japan-openid.credentials.client-secret}

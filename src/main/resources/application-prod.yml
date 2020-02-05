@@ -1,0 +1,11 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          yahoo:
+            authorization-grant-type: authorization_code
+            redirect-uri: https://yid-openid-sobue-jp.cfapps.io/login/oauth2/code/yahoo
+            scope:
+              - openid
+              - email

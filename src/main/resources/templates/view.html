@@ -1,0 +1,29 @@
+<html
+    xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title>OpenID Connect Sample of Yahoo! Japan ID</title>
+  <meta name="viewport" content="width=device-width"/>
+  <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+</head>
+<body>
+<h1>Login Successful.</h1>
+<div class="container">
+  <table>
+    <tr>
+      <td>sub</td>
+      <!--/*@thymesVar id="principal" type="org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser"*/-->
+      <td th:text="${principal.name}">name</td>
+    </tr>
+    <tr th:each="attr : ${principal.attributes}">
+      <td th:text="${attr.key}"></td>
+      <td th:text="${attr.value}"></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

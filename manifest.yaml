@@ -1,0 +1,18 @@
+applications:
+  - name: yid-openid
+    buildpacks:
+      - java_buildpack
+    stack: cflinuxfs3
+    memory: 512M
+    instances: 1
+    health-check-type: http
+    health-check-http-endpoint: /actuator/health
+    path: target/yid-openid.jar
+    routes:
+      - route: yid-openid-sobue-jp.cfapps.io
+    services:
+      - yahoo-japan-openid
+    env:
+      TZ: Asia/Tokyo
+      SPRING_PROFILES_ACTIVE: prod
+      JBP_CONFIG_OPEN_JDK_JRE: '{memory_calculator: { stack_threads: 4 }}'

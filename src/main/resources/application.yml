@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: yid-openid
+  profiles:
+    active: dev
+  security:
+    oauth2:
+      client:
+        provider:
+          yahoo:
+            authorization-uri: https://auth.login.yahoo.co.jp/yconnect/v2/authorization
+            token-uri: https://auth.login.yahoo.co.jp/yconnect/v2/token
+            user-info-uri: https://userinfo.yahooapis.jp/yconnect/v2/attribute
+            jwk-set-uri: https://auth.login.yahoo.co.jp/yconnect/v2/jwks
+            user-name-attribute: sub
+
+logging:
+  level:
+    org.apache.tomcat: warn
+    org.apache.catalina: warn
+    org.apache.coyote: warn
+    org.springframework: warn
