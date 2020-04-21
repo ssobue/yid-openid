@@ -21,6 +21,9 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
+      # FIXME: Support JDK 14
+      - run: exit 1
+
       # Setup CF CLI
       - run: dnf install -y wget
       - run: wget -O /etc/yum.repos.d/cloudfoundry-cli.repo https://packages.cloudfoundry.org/fedora/cloudfoundry-cli.repo

@@ -15,4 +15,4 @@ applications:
     env:
       TZ: Asia/Tokyo
       SPRING_PROFILES_ACTIVE: prod
-      JBP_CONFIG_OPEN_JDK_JRE: '{memory_calculator: { stack_threads: 4 }}'
+      JBP_CONFIG_OPEN_JDK_JRE: '{memory_calculator: { stack_threads: 4 }, jre: { version: 14.+ }}'
