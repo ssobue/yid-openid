@@ -1,4 +1,4 @@
-package jp.sobue.auth.yid;
+package dev.sobue.auth.yid;
 
 import java.util.Collections;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

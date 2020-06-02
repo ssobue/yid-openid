@@ -6,8 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
-      - image: centos:8
+      - image: circleci/openjdk:14-jdk
 
     working_directory: ~/repo
 
@@ -21,16 +20,6 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      # FIXME: Support JDK 14
-      - run: exit 1
-
-      # Setup CF CLI
-      - run: dnf install -y wget
-      - run: wget -O /etc/yum.repos.d/cloudfoundry-cli.repo https://packages.cloudfoundry.org/fedora/cloudfoundry-cli.repo
-      - run: dnf install -y cf-cli maven java-1.8.0-openjdk java-1.8.0-openjdk-devel java-1.8.0-openjdk-javadoc
-
-      - run: mvn dependency:go-offline
-
       # run tests!
       - run: mvn verify site-deploy
 
@@ -42,6 +31,3 @@ jobs:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
-
-      - run: cf login -a https://api.run.pivotal.io -u $CF_USER -p "$CF_PASS" -o $CF_ORG -s $CF_SPACE
-      - run: cf push -f manifest.yaml
